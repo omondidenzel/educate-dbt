@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: stg_attendance
+    description: "Staging model for Attendance Data."
+    columns:
+      - name: youth_id
+        description: "Unique identifier for each participant."
+        tests:
+          - not_null
+      - name: session
+        description: "Name of the training session (e.g., Karibu Day, Day 01 Full, etc.)."
+      - name: attended
+        description: "Boolean flag indicating if the participant attended the session."
+
+  - name: stg_youth
+    description: "Staging model for Youth Demographic Data."
+    columns:
+      - name: youth_id
+        description: "Unique identifier for each participant."
+        tests:
+          - unique
+          - not_null
+      - name: user_type
+        description: "Participant status (Organic, Mobilized, Acquired)."
+      - name: youth_name
+        description: "Participant's name."
+      - name: gender
+        description: "Participant's gender."
+      - name: training_schedule
+        description: "Scheduled training days (e.g., Monday_Tuesday)."
+      - name: venue_id
+        description: "Foreign key linking to the Venues table."
+
+  - name: stg_venues
+    description: "Staging model for Venue Data."
+    columns:
+      - name: venue_id
+        description: "Unique identifier for each venue."
+        tests:
+          - unique
+          - not_null
+      - name: county_pull
+        description: "County name."
+      - name: ward
+        description: "Ward name."
+      - name: training_venue
+        description: "Specific training venue name."
+
+  - name: stg_milestones
+    description: "Staging model for Milestones Data."
+    columns:
+      - name: youth_id
+        description: "Unique identifier for each participant."
+        tests:
+          - not_null
+      - name: milestone
+        description: "Name of the milestone."
+      - name: value
+        description: "Achievement value for the milestone."
+
+  - name: attendance_overview
+    description: "Final Table for analytics."
+    columns:
+      - name: youth_id
+        description: "Unique identifier for each participant."
+      - name: total_sessions
+        description: "Total number of sessions available for the participant."
+      - name: attended_sessions
+        description: "Total number of sessions attended."
+      - name: attendance_percentage
+        description: "Percentage of sessions attended."
+      - name: dropout_risk
+        description: "Risk classification (Active / At Risk) based on attendance."
+      - name: user_type
+        description: "Participant status (Organic, Mobilized, Acquired)."
+      - name: gender
+        description: "Participant's gender."
+      - name: training_schedule
+        description: "Scheduled training days."
+      - name: county_pull
+        description: "County name from the associated training venue."
+      - name: ward
+        description: "Ward name from the associated training venue."
+      - name: training_venue
+        description: "Specific training venue name."

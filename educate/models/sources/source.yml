@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw_data 
+    database: appdb
+    schema: public
+    tables:
+      - name: Attendance
+      - name: Milestones
+      - name: Venues
+      - name: Youth
