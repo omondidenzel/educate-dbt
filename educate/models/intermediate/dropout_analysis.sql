@@ -6,9 +6,9 @@ with attendance_summary as (
     group by 1
 )
 select youth_id
-  , total_sessions,
-  , attended_sessions,
-  , total_sessions - attended_sessions as missed_sessions,
+  , total_sessions
+  , attended_sessions
+  , total_sessions - attended_sessions as missed_sessions
   , case 
     when (total_sessions attended_sessions) > 10  then 'High' else 'Low'
   end as dropout_risk

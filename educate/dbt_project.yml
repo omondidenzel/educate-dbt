@@ -39,4 +39,4 @@ models:
     mart:
       +materialized: table
       shema: analytics
-      +post-hook: "grant select on {{ this }} to role read_only"
+      # +post-hook: "grant select on {{ this }} to role read_only"
