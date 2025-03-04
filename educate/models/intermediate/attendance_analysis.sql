@@ -1,3 +1,4 @@
+
 select youth_id
     , session as session_type
     , sum (case when attended = 1 then 1 else 0 end) as attended_sessions

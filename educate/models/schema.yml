@@ -12,6 +12,8 @@ models:
         description: "Name of the training session (e.g., Karibu Day, Day 01 Full, etc.)."
       - name: attended
         description: "Boolean flag indicating if the participant attended the session."
+        test:
+          - accepted_values: [1, 0]
 
   - name: stg_youth
     description: "Staging model for Youth Demographic Data."
