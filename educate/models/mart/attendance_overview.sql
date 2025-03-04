@@ -1,8 +1,8 @@
 
 with attendance_summary as (
     select youth_id
-      , count(*) as total_sessions,
-      , sum(case when attended = 1 then 1 else 0 end) as attended_sessions,
+      , count(*) as total_sessions
+      , sum(case when attended = 1 then 1 else 0 end) as attended_sessions
       , round(sum(case when attended = 1 then 1 else 0 end) * 100.0 / count(*), 2) as attendance_percentage
     from {{ ref('stg_attendance') }}
     group by youth_id
@@ -19,8 +19,8 @@ select a.youth_id
   , a.attended_sessions
   , a.attendance_percentage
   , d.dropout_risk
-  , y.user_type
-  , y.gender
+  , y."User Type" as user_type
+  , y.gender_pull as gender
   , y.training_schedule
   , v.county_pull
   , v.ward
