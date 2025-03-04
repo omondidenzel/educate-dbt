@@ -10,7 +10,7 @@ with attendance_summary as (
 dropout as (
     select youth_id
       , case 
-        when (total_sessions attended_sessions) > 10  then 'High' else 'Low'
+        when (total_sessions - attended_sessions) > 10  then 'High' else 'Low'
     end as dropout_risk
     from attendance_summary
 )
