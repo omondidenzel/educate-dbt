@@ -36,7 +36,8 @@ models:
       +materialized: ephemeral
     intermediate:
       +materialized: view
+      schema: dev_denzel
     mart:
       +materialized: table
-      shema: analytics
+      schema: dev_denzel
       # +post-hook: "grant select on {{ this }} to role read_only"

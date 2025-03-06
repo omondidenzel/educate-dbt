@@ -5,3 +5,4 @@ select youth_id
     , count(*) as total_sessions
 from {{ref('stg_attendance')}}
 group by 1, 2
+order by 1 asc
