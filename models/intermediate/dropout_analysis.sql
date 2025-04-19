@@ -13,3 +13,4 @@ select youth_id
     when (total_sessions - attended_sessions) > 10  then 'High' else 'Low'
   end as dropout_risk
 from attendance_summary
+order by 1 asc

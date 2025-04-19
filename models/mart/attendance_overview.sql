@@ -14,7 +14,7 @@ dropout as (
     end as dropout_risk
     from attendance_summary
 )
-select a.youth_id
+select distinct a.youth_id
   , a.total_sessions
   , a.attended_sessions
   , a.attendance_percentage

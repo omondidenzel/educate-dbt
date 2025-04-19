@@ -36,8 +36,15 @@ models:
       +materialized: ephemeral
     intermediate:
       +materialized: view
+<<<<<<< HEAD:dbt_project.yml
       shema: dev_denzel
     mart:
       +materialized: table
       shema: dev_denzel
+=======
+      schema: dev_denzel
+    mart:
+      +materialized: table
+      schema: dev_denzel
+>>>>>>> 48c27eb4a358b6cfcede6a33346772b0cdaa8dde:educate/dbt_project.yml
       # +post-hook: "grant select on {{ this }} to role read_only"
