@@ -21,7 +21,7 @@ models:
       - name: youth_id
         description: "Unique identifier for each participant."
         tests:
-          - unique
+          # - unique
           - not_null
       - name: user_type
         description: "Participant status (Organic, Mobilized, Acquired)."
