@@ -40,4 +40,7 @@ models:
     mart:
       +materialized: table
       schema: dev_denzel
+      +persist_docs:
+        relation: true
+        columns: true
       # +post-hook: "grant select on {{ this }} to role read_only"
